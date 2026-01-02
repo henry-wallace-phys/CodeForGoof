@@ -42,7 +42,7 @@ jobs:
       - name: Build binary
         run: pyinstaller --onefile --windowed --name ${{ matrix.artifact_name }} src/codeforgoof/apps/__main__pyqt_rename.py
 
-        - name: Upload to GitHub Release
+      - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           files: dist/${{ matrix.artifact_name }}
