@@ -6,13 +6,42 @@ readme = "README.md"
 authors = [
     { name = "henry-wallace-phys", email = "henry.wallace.phys@gmail.com" }
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 dependencies = [
-    "ipython>=9.8.0",
-    "jupyter>=1.1.1",
-    "pytest>=9.0.2",
-    "tqdm>=4.67.1",
+    "ipython",
+    "jupyter",
+    "pyinstaller>=6.17.0",
+    "pyqt5>=5.15.11",
+    "pytest",
+    "pytest-qt>=4.5.0",
+    "tqdm",
 ]
 
 [project.scripts]
-rename_files = "codeforgoof.apps.__main__rename_file__:main"
+rename_files_cli = "codeforgoof.apps.__main__rename_file__:main"
+rename_files = "codeforgoof.apps.__main__pyqt_rename:main"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100
+
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "I",   # import sorting
+    "UP",  # pyupgrade
+]
+
+ignore = [
+    "E501",  # long lines (handled by formatter/editor)
+]
+
+exclude = [
+    ".venv",
+    "build",
+    "dist",
+    "__pycache__",
+]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = ["F401"]

@@ -1,6 +1,9 @@
 # Useful Software for Zoe!
 
-## Installing
+# Using the GUI
+
+
+## Installing from source
 In the TOP LEVEL directory run `pip install .`. This will install the package
 
 ## Current Functionality

@@ -19,9 +19,9 @@ def test_iteratively_replace_file_name() -> None:
         test_filenames = ["file one.txt", "file two.txt", "another file.txt"]
         create_test_files(base_path, test_filenames)
         
-        renamer = FileRenamer(base_path, old_str=" ", new_str="_")
-        renamer.rename_files()
-        
+        renamer = FileRenamer(old_str=" ", new_str="_")
+        renamer.rename_files(base_path)
+
         expected_filenames = ["file_one.txt", "file_two.txt", "another_file.txt"]
         for filename in expected_filenames:
             assert (base_path / filename).exists()

@@ -9,8 +9,8 @@ def main():
     parser.add_argument("new_str", "-n", default="_", type=str, help="The substring to replace with in file names.")
     args = parser.parse_args()
 
-    renamer = FileRenamer(args.directory, args.old_str, args.new_str)
-    renamer.rename_files()
+    renamer = FileRenamer(args.old_str, args.new_str)
+    renamer.rename_files(args.directory)
 
     do_undo = input("Do you want to keep the changes? (y/n): ").strip().lower()
     if do_undo == 'n':
