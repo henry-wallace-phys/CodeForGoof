@@ -1,0 +1,18 @@
+[project]
+name = "codeforgoof"
+version = "0.1.0"
+description = "Code to help Zoe"
+readme = "README.md"
+authors = [
+    { name = "henry-wallace-phys", email = "henry.wallace.phys@gmail.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "ipython>=9.8.0",
+    "jupyter>=1.1.1",
+    "pytest>=9.0.2",
+    "tqdm>=4.67.1",
+]
+
+[project.scripts]
+rename_files = "codeforgoof.apps.__main__rename_file__:main"
