@@ -1,4 +1,3 @@
----
 name: Build GUI binaries (Windows / macOS / Linux)
 
 on:
@@ -18,27 +17,10 @@ jobs:
         include:
           - os: windows-latest
             artifact_name: rename_files-windows.exe
-            pyinstaller_args: >
-              --onefile
-              --windowed
-              --name rename_files-windows
-              -m codeforgoof.apps.__main__tkinter_rename
-
           - os: macos-latest
             artifact_name: rename_files-macos
-            pyinstaller_args: >
-              --onefile
-              --windowed
-              --name rename_files-macos
-              -m codeforgoof.apps.__main__tkinter_rename
-
           - os: ubuntu-latest
             artifact_name: rename_files-linux
-            pyinstaller_args: >
-              --onefile
-              --windowed
-              --name rename_files-linux
-              -m codeforgoof.apps.__main__tkinter_rename
 
     runs-on: ${{ matrix.os }}
 
@@ -59,7 +41,11 @@ jobs:
 
       - name: Build binary
         run: |
-          pyinstaller ${{ matrix.pyinstaller_args }}
+          pyinstaller \
+            --onefile \
+            --windowed \
+            --name ${{ matrix.artifact_name }} \
+            -m codeforgoof.apps.__main__tkinter_rename
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
