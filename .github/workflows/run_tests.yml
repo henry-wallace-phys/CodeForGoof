@@ -6,12 +6,6 @@ jobs:
   unit_tests:
     name: ${{ matrix.name }}
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: true
-      matrix:
-        include:
-          - name: 'cpu'
-            branch: "cpu-benchmarks"
 
     steps:
       - uses: actions/checkout@v4
