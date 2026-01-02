@@ -72,6 +72,7 @@ class FolderActionMenu(QWidget):
 
         self.action_button = QPushButton(f"{self.action_name}")
         self.action_button.clicked.connect(self.perform_action)
+        self.action_button.setEnabled(False)
         layout.addWidget(self.action_button)
 
         self.undo_button = QPushButton("Undo Action")
@@ -92,6 +93,7 @@ class FolderActionMenu(QWidget):
         if folder_path:
             self.selected_folder = folder_path
             self.folder_label.setText(f"Selected Folder:\n{folder_path}")
+            self.action_button.setEnabled(True)
 
     def perform_action(self):
         if self.selected_folder:
