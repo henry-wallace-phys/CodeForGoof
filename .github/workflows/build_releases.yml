@@ -37,8 +37,8 @@ jobs:
             artifact_path: dist/rename_files-windows.exe
             build_mode: --onefile
           - os: macos-latest
-            artifact_name: rename_files-macos.app
-            artifact_path: dist/rename_files.app
+            artifact_name: rename_files-macos.app.zip
+            artifact_path: dist/rename_files-macos.app.zip
             build_mode: --onedir
           - os: ubuntu-latest
             artifact_name: rename_files-linux
@@ -70,6 +70,13 @@ jobs:
             --windowed \
             --name ${{ matrix.os == 'macos-latest' && 'rename_files' || matrix.artifact_name }} \
             src/codeforgoof/apps/__main__pyqt_rename.py
+
+      - name: Package macOS app
+        if: matrix.os == 'macos-latest'
+        shell: bash
+        run: |
+          cd dist
+          zip -r rename_files-macos.app.zip rename_files.app
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
