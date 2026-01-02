@@ -17,10 +17,16 @@ jobs:
         include:
           - os: windows-latest
             artifact_name: rename_files-windows.exe
+            artifact_path: dist/rename_files-windows.exe
+            build_mode: --onefile
           - os: macos-latest
-            artifact_name: rename_files-macos
+            artifact_name: rename_files-macos.app
+            artifact_path: dist/rename_files.app
+            build_mode: --onedir
           - os: ubuntu-latest
             artifact_name: rename_files-linux
+            artifact_path: dist/rename_files-linux
+            build_mode: --onefile
 
     runs-on: ${{ matrix.os }}
 
@@ -40,9 +46,15 @@ jobs:
           pip install .
 
       - name: Build binary
-        run: pyinstaller --onefile --windowed --name ${{ matrix.artifact_name }} src/codeforgoof/apps/__main__pyqt_rename.py
+        shell: bash
+        run: |
+          pyinstaller \
+            ${{ matrix.build_mode }} \
+            --windowed \
+            --name ${{ matrix.os == 'macos-latest' && 'rename_files' || matrix.artifact_name }} \
+            src/codeforgoof/apps/__main__pyqt_rename.py
 
       - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/${{ matrix.artifact_name }}
+          files: ${{ matrix.artifact_path }}
