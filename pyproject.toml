@@ -1,6 +1,6 @@
 [project]
 name = "codeforgoof"
-version = "1.0.3"
+version = "1.0.4"
 description = "Code to help Zoe"
 readme = "README.md"
 authors = [

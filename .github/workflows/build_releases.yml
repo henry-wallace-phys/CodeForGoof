@@ -1,4 +1,5 @@
-name: Build GUI binaries (Windows / macOS / Linux)
+---
+name: Build and Release
 
 on:
   push:
@@ -10,7 +11,23 @@ permissions:
   contents: write
 
 jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: false
+          prerelease: false
+          make_latest: true
+          generate_release_notes: true
+
   build:
+    needs: create-release
     strategy:
       fail-fast: false
       matrix:
