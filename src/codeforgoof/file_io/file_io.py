@@ -1,10 +1,10 @@
 from pathlib import Path
+
 from tqdm import tqdm
-from typing import Optional
 
 
 class FileRenamer:
-    def __init__(self, directory: Optional[Path | str]=None, old_str: str=" ", new_str: str="_") -> None:
+    def __init__(self, directory: Path | str | None=None, old_str: str=" ", new_str: str="_") -> None:
         """
         Initializes the FileRenamer with the specified directory and strings to replace.
 
@@ -19,7 +19,7 @@ class FileRenamer:
         
         self.renamed_files = []
     
-    def rename_files(self, directory: Optional[Path | str] = None) -> None:
+    def rename_files(self, directory: Path | str | None = None) -> None:
         """
         Renames files by replacing occurrences of old_str with new_str in their names
         within the specified directory and its subdirectories.

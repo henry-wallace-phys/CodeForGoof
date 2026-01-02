@@ -1,8 +1,9 @@
+import sys
+
+from PyQt5.QtWidgets import QApplication
+
 from codeforgoof.file_io import FileRenamer
 from codeforgoof.pyqt.pyqt_browsers import FolderActionMenu
-
-import sys
-from PyQt5.QtWidgets import QApplication
 
 
 def rename_action(selected_folder: str, renamer: FileRenamer):

@@ -3,14 +3,12 @@ GUI tests for pyqt_file_renamer using pytest-qt
 """
 
 import sys
-import tempfile
-from pathlib import Path
+
 import pytest
 from PyQt5.QtWidgets import QApplication
 
-from codeforgoof.file_io import FileRenamer
 from codeforgoof.pyqt.pyqt_browsers import FolderActionMenu
-from codeforgoof.pyqt.pyqt_file_renamer import pyqt_file_renamer
+
 
 @pytest.fixture(scope="session")
 def app():

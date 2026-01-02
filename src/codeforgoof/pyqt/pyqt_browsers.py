@@ -4,17 +4,17 @@ Additional functionality can be added.
 """
 
 import sys
-from typing import Optional, Callable
+from collections.abc import Callable
 
+from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (
     QApplication,
-    QWidget,
+    QFileDialog,
     QLabel,
     QPushButton,
-    QFileDialog,
     QVBoxLayout,
+    QWidget,
 )
-from PyQt5.QtCore import Qt
 
 
 class GenericFolderSelector:
@@ -22,7 +22,7 @@ class GenericFolderSelector:
         self.title = title
         self.initial_dir = initial_dir
 
-    def browse_folder(self) -> Optional[str]:
+    def browse_folder(self) -> str | None:
         folder_path = QFileDialog.getExistingDirectory(
             None,
             self.title,
@@ -52,7 +52,7 @@ class FolderActionMenu(QWidget):
 
         self.action_callback = action_callback
         self.undo_callback = undo_callback
-        self.selected_folder: Optional[str] = None
+        self.selected_folder: str | None = None
         self.action_performed = False
         self.action_name = action_name
 

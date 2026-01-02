@@ -1,6 +1,7 @@
+import argparse
+
 from codeforgoof.file_io import FileRenamer
 
-import argparse
 
 def main():
     parser = argparse.ArgumentParser(description="Rename files by replacing substrings in their names.")

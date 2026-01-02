@@ -1,9 +1,11 @@
 '''
 Basic tests for the file renaming functions.
 '''
-from codeforgoof.file_io import FileRenamer
-from pathlib import Path
 import tempfile
+from pathlib import Path
+
+from codeforgoof.file_io import FileRenamer
+
 
 def create_test_files(base_dir: Path, filenames: list[str]) -> None:
     for filename in filenames:
