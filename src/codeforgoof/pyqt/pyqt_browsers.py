@@ -7,16 +7,16 @@ import sys
 from collections.abc import Callable
 from io import StringIO
 
-from PyQt5.QtCore import Qt, QObject, pyqtSignal
+from PyQt5.QtCore import QObject, Qt, pyqtSignal
 from PyQt5.QtWidgets import (
     QApplication,
     QFileDialog,
     QLabel,
     QPushButton,
+    QSplitter,
+    QTextEdit,
     QVBoxLayout,
     QWidget,
-    QTextEdit,
-    QSplitter,
 )
 
 
