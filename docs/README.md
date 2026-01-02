@@ -1,5 +1,11 @@
 # Useful Software for Zoe!
 
+# Installing as application
+Go to https://github.com/henry-wallace-phys/CodeForGoof/releases. Then pick the latest release (highest number!). Then click on the file appropriate for your OS
+* **Windows** : `rename_files-windows.exe`
+* **Mac-OS**: `rename_files-macos.zip` (note this needs to be decompressed to use)
+* **Linux**: `rename_files-linux`
+
 # Using the GUI
 Open the gui by clicking on `rename_files-windows.exe` this will pop up
 ![alt text](images/rename_menu.png)
