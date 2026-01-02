@@ -12,8 +12,6 @@ jobs:
         include:
           - name: 'cpu'
             branch: "cpu-benchmarks"
-          - name: 'gpu'
-            branch: "gpu-benchmarks"
 
     steps:
       - uses: actions/checkout@v4
