@@ -1,0 +1,29 @@
+---
+name: Run Unit Tests
+on: [push]
+
+jobs:
+  unit_tests:
+    name: ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          - name: 'cpu'
+            branch: "cpu-benchmarks"
+          - name: 'gpu'
+            branch: "gpu-benchmarks"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Run tests
+        run: |
+            uv venv --python 3.11
+            source .venv/bin/activate
+            uv pip install .
+            uv run pytest
