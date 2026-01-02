@@ -8,11 +8,17 @@ Go to https://github.com/henry-wallace-phys/CodeForGoof/releases. Then pick the 
 
 # Using the GUI
 Open the gui by clicking on `rename_files-windows.exe` this will pop up
-![alt text](images/rename_menu.png)
+
+![Renaming menu with no file selected](images/rename_menu.png)
+
 Now, click `browse files` and select the top level folder you want to rename
-![alt text](images/file_browser.png)
+
+![Mac-OS file browser](images/file_browser.png)
+
 Press `rename files` to rename all files in this directory and all subdirectories
-![alt text](images/selected_folder.png)
+
+![Renaming menu with folder selected](images/selected_folder.png)
+
 Press undo if you don't want to do this. Exit by pressing `Quit`.
 
 ## Installing from source
